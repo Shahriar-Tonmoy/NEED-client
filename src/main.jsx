@@ -10,7 +10,7 @@ import SignIn from "./Components/SignIn/SignIn.jsx";
 import Home from "./Components/Home/Home.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import Error from "./Components/Error/Error.jsx";
-import AddProduct from "./Components/AddProduct/AddProduct.jsx";
+import AddProduct from "./Components/AddJob/AddJob.jsx";
 import MyCart from "./Components/MyCart/MyCart.jsx";
 import Products from "./Components/Products/Products.jsx";
 import Details from "./Components/Details/Details.jsx";
