@@ -1,35 +1,63 @@
 import { useEffect, useState } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Job from "../Job/Job";
 
 const Jobs = () => {
-  const [brands, setBrands] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("brands.json")
+    fetch("http://localhost:5000/jobs")
       .then((res) => res.json())
-      .then((data) => setBrands(data));
+      .then((data) => setJobs(data));
   }, []);
+
+  console.log(jobs);
+
+  const webDevJobs = jobs.filter(job => job.category === 'Web development');
+  const digiMarketingJobs = jobs.filter(job => job.category === 'Digital marketing');
+  const graphDesignJobs = jobs.filter(job => job.category === 'Graphics design');
   return (
     <div className="mt-32 mb-32">
       <h1 className="text-center text-5xl font-bold mb-16 text-[#59CE8F]">
         Jobs
       </h1>
       <Tabs className='w-max mx-auto'>
-        <TabList className='border border-[#59CE8F] rounded-lg text-[#59CE8F]'>
+        <TabList className=' border-[#59CE8F] rounded-lg text-[#59CE8F]'>
           <Tab>Web development</Tab>
           <Tab>Digital marketing</Tab>
           <Tab>Graphics design</Tab>
         </TabList>
 
-        <TabPanel>
-          <h2>Any content 1</h2>
+        <TabPanel className='mt-20 '>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+            {
+              webDevJobs.map((job) => (
+                
+                <Job key={job._id} job={job}></Job>
+              ))
+            }
+          </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {
+              digiMarketingJobs.map((job) => (
+                
+                <Job key={job._id} job={job}></Job>
+              ))
+            }
+          </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 3</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {
+              graphDesignJobs.map((job) => (
+                
+                <Job key={job._id} job={job}></Job>
+              ))
+            }
+          </div>
         </TabPanel>
       </Tabs>
     </div>
