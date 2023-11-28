@@ -22,43 +22,40 @@ const Details = () => {
     imageURL,
   } = selectedJob;
 
-  const handleCart = () => {
+  const handleBidJob = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const price = form.price.value;
+    const deadline = form.deadline.value;
+    const email = form.email.value;
+    const buyerEmail = form.buyerEmail.value;
+    const newBidJob = {
+      price,
+      deadline,
+      email,
+      buyerEmail
+    };
     fetch(
-      "https://brand-website-server-9lu7pgb34-mirza-shahriar-tonmoys-projects.vercel.app/cart_products",
+      "http://localhost:5000/bidJobs",
       {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
-        body: JSON.stringify(newSelectedPro),
+        body: JSON.stringify(newBidJob),
       }
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data) {
-          toast("Your product is successfully added to cart!!");
+          toast("You've bid for this project successfully!!");
         }
       });
   };
   return (
     <div>
       <ToastContainer></ToastContainer>
-      {/* <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col lg:flex-row">
-          <img src={imageURL} className="max-w-sm rounded-lg shadow-2xl" />
-          <div>
-            <h1 className="text-5xl font-bold text-[#59CE8F]">{name}</h1>
-            <p className="py-6">{description}</p>
-            <p className="py-4 text-2xl font-bold">{minimumPrice}</p>
-            <p className="py-4 text-2xl font-bold">{maximumPrice}</p>
-            <p className="py-4 text-2xl font-bold">{deadline}</p>
-            <button onClick={handleCart} className="btn bg-[#59CE8F]  text-white hover:bg-orange-500">
-              Add to cart
-            </button>
-          </div>
-        </div>
-      </div> */}
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-col">
           <div className="text-center lg:text-left">
@@ -72,7 +69,7 @@ const Details = () => {
 
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border border-[#59CE8F]">
             <h1 className="text-[#59CE8F] text-5xl font-extrabold text-center">Place Your Bid</h1>
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleBidJob}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Price</span>
@@ -92,7 +89,10 @@ const Details = () => {
                 <input
                   type="date"   
                   className="input input-bordered"
+                  defaultValue={deadline}
+                  name='deadline'
                   required
+                  readOnly
                 />
               </div>
               <div className="form-control">
@@ -117,7 +117,7 @@ const Details = () => {
                   defaultValue={email}
                   placeholder=""
                   className="input input-bordered"
-                  name="email"
+                  name="buyerEmail"
                   readOnly                
                 />
               </div>
