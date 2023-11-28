@@ -1,5 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Job = ({ job }) => {
-    const {_id, email, title, deadline, description, minimumPrice, maximumPrice, imageURL} = job;
+  const {
+    _id,
+    email,
+    title,
+    deadline,
+    description,
+    minimumPrice,
+    maximumPrice,
+    imageURL,
+  } = job;
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl border border-[#59CE8F] flex flex-col h-full pb-5">
@@ -15,12 +26,18 @@ const Job = ({ job }) => {
           <p>{description}</p>
           <div className="flex justify-between w-full">
             <p className="text-[#59CE8F]">Dead line: {deadline}</p>
-            <p className="text-[#59CE8F]">{minimumPrice}-{maximumPrice}</p>
+            <p className="text-[#59CE8F]">
+              {minimumPrice}-{maximumPrice}
+            </p>
           </div>
         </div>
-        <div className="card-actions ">
-            <button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">Bid now</button>
-        </div>
+        <Link to={`/details/${_id}`}>
+          <div className="card-actions ">
+            <button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
+              Bid now
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );
