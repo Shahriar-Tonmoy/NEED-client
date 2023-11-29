@@ -22,6 +22,8 @@ const Details = () => {
     imageURL,
   } = selectedJob;
 
+  const status = 'pending';
+
   const handleBidJob = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -30,10 +32,12 @@ const Details = () => {
     const email = form.email.value;
     const buyerEmail = form.buyerEmail.value;
     const newBidJob = {
+      title,
       price,
       deadline,
       email,
-      buyerEmail
+      buyerEmail,
+      status
     };
     fetch(
       "http://localhost:5000/bidJobs",
@@ -68,7 +72,7 @@ const Details = () => {
           </div>
 
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border border-[#59CE8F]">
-            <h1 className="text-[#59CE8F] text-5xl font-extrabold text-center">Place Your Bid</h1>
+            <h1 className="text-[#59CE8F] text-5xl font-extrabold text-center mt-8">Place Your Bid</h1>
             <form className="card-body" onSubmit={handleBidJob}>
               <div className="form-control">
                 <label className="label">

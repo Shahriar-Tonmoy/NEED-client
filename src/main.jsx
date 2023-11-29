@@ -15,6 +15,7 @@ import MyCart from "./Components/MyCart/MyCart.jsx";
 import Products from "./Components/Products/Products.jsx";
 import Details from "./Components/Details/Details.jsx";
 import Update from "./Components/Update/Update.jsx";
+import MyBids from "./Components/MyBids/MyBids.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,8 +51,8 @@ const router = createBrowserRouter([
 
       },
       {
-        path:"my_cart",
-        element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
+        path:"/myBids",
+        element:<PrivateRoute><MyBids></MyBids></PrivateRoute>
       },
       {
         path:"/update/:id",
