@@ -14,6 +14,28 @@ const MyBids = () => {
     
       console.log(bidJobs);
 
+    const handleUpdateStatus = id =>{
+        fetch(`http://localhost:5000/bidJobs/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'complete'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                //update status
+                const remaining = bidJobs.filter(job => job._id!==id);
+                const updated = bidJobs.find(job => job._id === id);
+                updated.status = 'complete';
+                const newBidJobs = [updated, ...remaining];
+                setBidJobs(newBidJobs);
+            }
+        })
+    }
+
   return (
     <div className="min-h-screen">
       <h1 className="text-center text-5xl font-bold mb-16 text-[#59CE8F]">
@@ -24,34 +46,25 @@ const MyBids = () => {
           {/* head */}
           <thead>
             <tr>
-              <th></th>
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th className="text-[#59CE8F] text-lg">Job Title</th>
+              <th className="text-[#59CE8F] text-lg">Email</th>
+              <th className="text-[#59CE8F] text-lg">Deadline</th>
+              <th className="text-[#59CE8F] text-lg">Status</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
+            {
+                bidJobs.map(job => (
+                <tr key={job._id} className="border border-[#59CE8F]">
+                    <td>{job.title}</td>
+                    <td>{job.buyerEmail}</td>
+                    <td>{job.deadline}</td>
+                    <td>{job.status}</td>
+                    <button onClick={() => handleUpdateStatus(job._id)} className={`hover:text-[#59CE8F] mt-3 ${(job.status === 'in progress') ? `block` : `hidden`}`}>Complete</button>
+                  </tr>))
+            }
             {/* row 2 */}
-            <tr>
-              <th>2</th>
-              <td>Hart Hagerty</td>
-              <td>Desktop Support Technician</td>
-              <td>Purple</td>
-            </tr>
-            {/* row 3 */}
-            <tr>
-              <th>3</th>
-              <td>Brice Swyre</td>
-              <td>Tax Accountant</td>
-              <td>Red</td>
-            </tr>
           </tbody>
         </table>
       </div>
