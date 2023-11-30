@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const MyPostedJob = ({ job }) => {
+const MyPostedJob = ({ job, handleDelete }) => {
   const {
     _id,
     email,
@@ -26,7 +26,8 @@ const MyPostedJob = ({ job }) => {
                 Update
               </button>
             </Link>
-            <button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
+            
+            <button onClick={()=>handleDelete(_id)} className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
               Delete
             </button>
           </div>

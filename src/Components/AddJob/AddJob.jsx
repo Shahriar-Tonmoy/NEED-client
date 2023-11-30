@@ -50,7 +50,7 @@ const AddJob = () => {
         console.log(data);
         toast("Job Posted successfully");
         setTimeout(() => {
-          navigate("/")
+          navigate("/myPostedJobs")
         }, 2000)
       });
 
