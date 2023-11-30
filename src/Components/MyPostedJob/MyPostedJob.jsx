@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const MyPostedJob = ({ job }) => {
 
     const {
@@ -25,9 +27,12 @@ const MyPostedJob = ({ job }) => {
           </h2>
           <p>{description}</p>
           <div className="card-actions justify-center">
-          <button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
+            
+          
+         <Link to={`/update/${_id}`}><button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
               Update
          </button>
+         </Link>
           <button className="btn border border-[#59CE8F] hover:bg-[#59CE8F] text-white mx-auto">
               Delete
          </button>

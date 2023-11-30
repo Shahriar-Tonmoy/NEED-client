@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id",
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params}) => fetch(`https://brand-website-server-9lu7pgb34-mirza-shahriar-tonmoys-projects.vercel.app/products/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
       }
     ]
   },
