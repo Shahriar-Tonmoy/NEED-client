@@ -19,35 +19,34 @@ const Update = () => {
       category,
       imageURL,
     } = loadedJob;
-    // const handleUpdateProduct = e =>{
-    //     e.preventDefault();
-    //     const form  = e.target;
-    //     const fName = form.name.value;
-    //     const fImage = form.image.value;
-    //     const fBrandName = form.brandName.value;
-    //     const fType = form.type.value;
-    //     const fPrice = form.price.value;
-    //     const fShortDescription = form.shortDescription.value;
-    //     const fRating = form.rating.value;
-    //     const updatedProduct = {fName, fImage, fBrandName, fType, fPrice, fShortDescription, fRating};
-    //     console.log(updatedProduct);
+    const handleUpdateJob = e =>{
+        e.preventDefault();
+        const form  = e.target;
+        const fEmail = form.email.value;
+        const fJobTitle = form.title.value;
+        const fDeadline = form.deadline.value;
+        const fDescription = form.description.value;
+        const fMinimumPrice = form.minimumPrice.value;
+        const fMaximumPrice = form.maximumPrice.value;
+        const fCategory = form.category.value;
+        const updatedJob = {fEmail, fJobTitle, fDescription, fDeadline, fMinimumPrice, fMaximumPrice, fCategory};
         
-    //     fetch(`https://brand-website-server-9lu7pgb34-mirza-shahriar-tonmoys-projects.vercel.app/products/${loadedProduct._id}`,{
-    //         method:'PUT',
-    //         headers:{
-    //             'content-type': "application/json"
-    //         },
-    //         body: JSON.stringify(updatedProduct)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if(data.modifiedCount > 0){
-    //                 toast('Updated Successfully!!')
-    //             }
-    //         })
+        fetch(`http://localhost:5000/jobs/${_id}`,{
+            method:'PUT',
+            headers:{
+                'content-type': "application/json"
+            },
+            body: JSON.stringify(updatedJob)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.modifiedCount > 0){
+                    toast('Updated Successfully!!')
+                }
+            })
         
-    // }
+    }
 
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -58,7 +57,7 @@ const Update = () => {
           <h1 className="text-[#59CE8F] text-center text-3xl font-bold">
             Update Your Posted Job
           </h1>
-          <form className="card-body" >
+          <form className="card-body" onSubmit={handleUpdateJob} >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="form-control">
                 <label className="label">
@@ -153,7 +152,7 @@ const Update = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-orange-200 w-[30%] mx-auto">
+              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-green-400 w-[30%] mx-auto">
                 Update
               </button>
             </div>
