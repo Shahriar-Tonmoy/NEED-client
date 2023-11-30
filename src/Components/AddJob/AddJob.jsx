@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/authProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 
 const AddJob = () => {
+  useEffect(() => {
+    document.title = 'N E E D | Add Jobs'; 
+  }, []);
 
   const { user, signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();

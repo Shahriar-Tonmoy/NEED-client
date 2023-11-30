@@ -7,6 +7,10 @@ const MyBids = () => {
     const { user, signOutUser } = useContext(AuthContext);
 
     useEffect(() => {
+        document.title = 'N E E D | My Bids'; 
+      }, []);
+
+    useEffect(() => {
         fetch(`http://localhost:5000/bidJobs?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => setBidJobs(data));

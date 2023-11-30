@@ -8,6 +8,9 @@ import Email from "../Email/Email";
 
 const Home = () => {
   useEffect(() => {
+    document.title = 'N E E D | Home'; 
+  }, []);
+  useEffect(() => {
     AOS.init();
   }, []);
   return (
