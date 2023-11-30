@@ -1,10 +1,14 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../AuthProvider/authProvider";
 
 const Details = () => {
+  useEffect(() => {
+    document.title = 'N E E D | Job Details'; 
+  }, []);
+  const navigate = useNavigate();
   const allJobs = useLoaderData();
   const { user, signOutUser } = useContext(AuthContext);
   const { id } = useParams();
@@ -54,6 +58,9 @@ const Details = () => {
         console.log(data);
         if (data) {
           toast("You've bid for this project successfully!!");
+          setTimeout(() => {
+            navigate("/myBids")
+          }, 2000)
         }
       });
   };
@@ -126,7 +133,7 @@ const Details = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className={`btn border-[#59CE8F] text-white hover:bg-[#59CE8F]`} disabled={user.email === email ? true : false} >Bid on the project</button>
+                <button className={`btn border-[#59CE8F] text-white hover:bg-[#59CE8F]`} disabled={user.email === email ? true : false} >Bid on this project</button>
                 {/*  */}
               </div>
             </form>
