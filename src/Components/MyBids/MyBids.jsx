@@ -65,7 +65,7 @@ const MyBids = () => {
                     <td>{job.buyerEmail}</td>
                     <td>{job.deadline}</td>
                     <td>{job.status}</td>
-                    <button onClick={() => handleUpdateStatus(job._id)} className={`hover:text-[#59CE8F] mt-3 ${(job.status === 'in progress') ? `block` : `hidden`}`}>Complete</button>
+                    <button onClick={() => handleUpdateStatus(job._id)} className={`underline hover:text-[#59CE8F] mt-3 ${(job.status === 'in progress') ? `block` : `hidden`}`}>Complete</button>
                   </tr>))
             }
             {/* row 2 */}

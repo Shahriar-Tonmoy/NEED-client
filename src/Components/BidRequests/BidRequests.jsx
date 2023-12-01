@@ -31,7 +31,28 @@ const BidRequests = () => {
                 //update status
                 const remaining = bidJobs.filter(job => job._id!==id);
                 const updated = bidJobs.find(job => job._id === id);
-                updated.status = 'complete';
+                updated.status = 'rejected';
+                const newBidJobs = [updated, ...remaining];
+                setBidJobs(newBidJobs);
+            }
+        })
+    }
+      const handleUpdateStatusAccepted = id =>{
+        fetch(`http://localhost:5000/bidJobs/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'in progress'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                //update status
+                const remaining = bidJobs.filter(job => job._id!==id);
+                const updated = bidJobs.find(job => job._id === id);
+                updated.status = 'in progress';
                 const newBidJobs = [updated, ...remaining];
                 setBidJobs(newBidJobs);
             }
@@ -66,8 +87,11 @@ const BidRequests = () => {
                     <td>{job.deadline}</td>
                     <td>{job.price}</td>
                     <td>{job.status}</td>
-                    <button onClick={() => handleUpdateStatusRejected(job._id)} className="hover:text-[#59CE8F] mr-4 mt-3">Accept</button>
-                    <button className="hover:text-[#59CE8F]">Reject</button>
+                    <td className=""><button onClick={() => handleUpdateStatusAccepted(job._id)} className={` underline hover:text-[#59CE8F]  mr-4 ${(job.status === 'in progress' || job.status === 'complete' || job.status === 'rejected') ? `hidden` : `block`}`}>Accept</button>
+
+                    <button onClick={() => handleUpdateStatusRejected(job._id)} className={`underline hover:text-[#59CE8F] mt-3  ${(job.status === 'in progress' || job.status === 'complete' || job.status === 'rejected') ? `hidden` : `block`}`}>Reject</button>                   
+                    <progress className={`progress w-56 mt-4 ${(job.status === 'in progress') ? `block` : `hidden`}`} value="40" max="100"></progress></td>
+                    
                   </tr>))
             }
             {/*onClick={() => handleUpdateStatus(job._id)}    className={`hover:text-[#59CE8F] mt-3 ${(job.status === 'in progress') ? `block` : `hidden`}`} */}
