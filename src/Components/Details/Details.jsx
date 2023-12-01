@@ -64,6 +64,10 @@ const Details = () => {
         }
       });
   };
+
+  const deadlineDate = new Date(deadline);
+  const Time = deadlineDate.getTime();
+  console.log(Time);
   return (
     <div>
       <ToastContainer></ToastContainer>
@@ -133,7 +137,7 @@ const Details = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className={`btn border-[#59CE8F] text-white hover:bg-[#59CE8F]`} disabled={user.email === email ? true : false} >Bid on this project</button>
+                <button className={`btn border-[#59CE8F] text-white hover:bg-[#59CE8F]`} disabled={(user.email === email || Date.now() >= Time) ? true : false} >Bid on this project</button>
                 {/*  */}
               </div>
             </form>
