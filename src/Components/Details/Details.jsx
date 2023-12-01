@@ -41,7 +41,7 @@ const Details = () => {
       deadline,
       email,
       buyerEmail,
-      status
+      status,
     };
     fetch(
       "http://localhost:5000/bidJobs",

@@ -17,6 +17,7 @@ import Details from "./Components/Details/Details.jsx";
 import Update from "./Components/Update/Update.jsx";
 import MyBids from "./Components/MyBids/MyBids.jsx";
 import MyPostedJobs from "./Components/MyPostedJobs/MyPostedJobs.jsx";
+import BidRequests from "./Components/BidRequests/BidRequests.jsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path:"/myBids",
         element:<PrivateRoute><MyBids></MyBids></PrivateRoute>
+      },
+      {
+        path:"/bidRequests",
+        element:<PrivateRoute><BidRequests></BidRequests></PrivateRoute>
       },
       {
         path:"/myPostedJobs",

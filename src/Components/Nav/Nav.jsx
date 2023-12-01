@@ -21,7 +21,7 @@ const Nav = ({ handleToggle }) => {
         <NavLink className="text-lg font-semibold" to="/myBids">
           My Bids
         </NavLink>
-        <NavLink className="text-lg font-semibold" to="/my_cart">
+        <NavLink className="text-lg font-semibold" to="/bidRequests">
           Bid Requests
         </NavLink>
 
