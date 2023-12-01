@@ -12,7 +12,7 @@ const Nav = ({ handleToggle }) => {
           Home
         </NavLink>
 
-        <NavLink className="text-lg font-semibold" to="/add_product">
+        <NavLink className="text-lg font-semibold" to="/addJob">
           Add Job
         </NavLink>
         <NavLink className="text-lg font-semibold" to="/myPostedJobs">

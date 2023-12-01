@@ -1,8 +1,22 @@
-# React + Vite
+## Features
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Feature 1: 
+User can create his/her own account or log in with google. This is controlled by firebase authentication system.  
 
-Currently, two official plugins are available:
+### Feature 2:
+In homepage Jobs are categorized and there is a bid now button for every job and it will redirect user to job details page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Feature 3:
+in Job details page there is a form to bid on that job
+
+### Feature 4:
+then can see his/her own bid jobs from my bids button on nav bar, and also can see bid requests for his/her posted jobs.
+
+### Feature 5:
+user can accept or reject bid request from bid requests section
+
+
+
+[https://need-a2861.web.app/](https://need-a2861.web.app/)
+
+

@@ -44,7 +44,7 @@ const Details = () => {
       status,
     };
     fetch(
-      "http://localhost:5000/bidJobs",
+      "https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/bidJobs",
       {
         method: "POST",
         headers: {

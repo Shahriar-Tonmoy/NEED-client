@@ -31,7 +31,7 @@ const Update = () => {
         const fCategory = form.category.value;
         const updatedJob = {fEmail, fJobTitle, fDescription, fDeadline, fMinimumPrice, fMaximumPrice, fCategory};
         
-        fetch(`http://localhost:5000/jobs/${_id}`,{
+        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs/${_id}`,{
             method:'PUT',
             headers:{
                 'content-type': "application/json"

@@ -18,6 +18,7 @@ import Update from "./Components/Update/Update.jsx";
 import MyBids from "./Components/MyBids/MyBids.jsx";
 import MyPostedJobs from "./Components/MyPostedJobs/MyPostedJobs.jsx";
 import BidRequests from "./Components/BidRequests/BidRequests.jsx";
+import AddJob from "./Components/AddJob/AddJob.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,18 +39,13 @@ const router = createBrowserRouter([
         element: <SignIn></SignIn>,
       },
       {
-        path: "/products/:name",
-        element:<PrivateRoute><Products></Products></PrivateRoute>,
-        loader: ()=>fetch('https://brand-website-server-9lu7pgb34-mirza-shahriar-tonmoys-projects.vercel.app/products')
-      },
-      {
-        path:"add_product",
-        element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+        path:"addJob",
+        element:<PrivateRoute><AddJob></AddJob></PrivateRoute>
       },
       {
         path:"/details/:id",
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ()=>fetch('http://localhost:5000/jobs')
+        loader: ()=>fetch('https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs')
 
       },
       {
@@ -67,7 +63,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id",
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs/${params.id}`)
       }
     ]
   },

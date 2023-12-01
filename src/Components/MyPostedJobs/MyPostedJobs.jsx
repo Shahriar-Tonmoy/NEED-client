@@ -10,13 +10,14 @@ import Swal from "sweetalert2";
 const MyPostedJobs = () => {
   const [myJobs, setMyJobs] = useState([]);
   const { user, signOutUser } = useContext(AuthContext);
+  console.log(user.email);
 
   useEffect(() => {
     document.title = "N E E D | My Posted Jobs";
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/jobs?email=${user.email}`)
+    fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyJobs(data));
   }, []);
@@ -32,7 +33,7 @@ const MyPostedJobs = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/jobs/${id}`, {
+        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
