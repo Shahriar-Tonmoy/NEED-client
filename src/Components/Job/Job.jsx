@@ -12,7 +12,7 @@ const Job = ({ job }) => {
     imageURL,
   } = job;
   return (
-    <div>
+    <div className="mx-auto">
       <div className="card w-96 bg-base-100 shadow-xl border border-[#59CE8F] flex flex-col h-full pb-5">
         <figure className="px-10 pt-10">
           <img

@@ -101,6 +101,7 @@ const AddJob = () => {
                   className="input input-bordered"
                   name="deadline"
                   required
+                  min={new Date().toISOString().split('T')[0]}
                 />
               </div>
               <div className="form-control">

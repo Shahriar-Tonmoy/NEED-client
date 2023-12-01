@@ -100,7 +100,7 @@ const Registration = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-orange-200">Sign up</button>
+              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-green-200">Sign up</button>
             </div>
           </form>
           <p className="text-center">Already have an account? <Link className="text-[#59CE8F] underline" to="/SignIn">Sign In</Link> here</p>

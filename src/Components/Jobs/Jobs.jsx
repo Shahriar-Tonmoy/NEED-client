@@ -18,11 +18,11 @@ const Jobs = () => {
   const digiMarketingJobs = jobs.filter(job => job.category === 'Digital marketing');
   const graphDesignJobs = jobs.filter(job => job.category === 'Graphics design');
   return (
-    <div className="mt-32 mb-32">
+    <div className="mt-32 mb-32 container mx-auto">
       <h1 className="text-center text-5xl font-bold mb-16 text-[#59CE8F]">
         Jobs
       </h1>
-      <Tabs className='w-max mx-auto'>
+      <Tabs className='mx-auto'>
         <TabList className=' border-[#59CE8F] rounded-lg text-[#59CE8F]'>
           <Tab>Web development</Tab>
           <Tab>Digital marketing</Tab>

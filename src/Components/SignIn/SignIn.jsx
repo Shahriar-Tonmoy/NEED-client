@@ -76,7 +76,7 @@ const SignIn = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-orange-200">
+              <button className="btn bg-opacity-0 border-[#59CE8F] hover:bg-opacity-0 hover:border-green-200">
                 Sign in
               </button>
             </div>
