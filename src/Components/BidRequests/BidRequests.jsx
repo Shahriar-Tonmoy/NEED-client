@@ -11,13 +11,13 @@ const BidRequests = () => {
       }, []);
     
       useEffect(() => {
-        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/bidJobs?buyerEmail=${user.email}`)
+        fetch(`https://need-server.vercel.app/bidJobs?buyerEmail=${user.email}`)
           .then((res) => res.json())
           .then((data) => setBidJobs(data));
       }, []);
 
       const handleUpdateStatusRejected = id =>{
-        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/bidJobs/${id}`, {
+        fetch(`https://need-server.vercel.app/bidJobs/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -38,7 +38,7 @@ const BidRequests = () => {
         })
     }
       const handleUpdateStatusAccepted = id =>{
-        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/bidJobs/${id}`, {
+        fetch(`https://need-server.vercel.app/bidJobs/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

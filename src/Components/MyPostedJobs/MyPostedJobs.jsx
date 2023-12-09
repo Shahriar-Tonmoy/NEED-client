@@ -17,7 +17,7 @@ const MyPostedJobs = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs?email=${user.email}`)
+    fetch(`https://need-server.vercel.app/jobs?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setMyJobs(data));
   }, []);
@@ -33,7 +33,7 @@ const MyPostedJobs = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs/${id}`, {
+        fetch(`https://need-server.vercel.app/jobs/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

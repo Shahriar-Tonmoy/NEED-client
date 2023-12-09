@@ -7,7 +7,7 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs")
+    fetch("https://need-server.vercel.app/jobs")
       .then((res) => res.json())
       .then((data) => setJobs(data));
   }, []);

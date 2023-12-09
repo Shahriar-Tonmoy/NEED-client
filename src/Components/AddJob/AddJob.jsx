@@ -36,7 +36,7 @@ const AddJob = () => {
     console.log(newJob);
     form.reset();
     fetch(
-      "https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs",
+      "https://need-server.vercel.app/jobs",
       {
         method: "POST",
         headers: {

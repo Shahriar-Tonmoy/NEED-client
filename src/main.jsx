@@ -45,7 +45,7 @@ const router = createBrowserRouter([
       {
         path:"/details/:id",
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ()=>fetch('https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs')
+        loader: ()=>fetch('https://need-server.vercel.app/jobs')
 
       },
       {
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id",
         element:<PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({params}) => fetch(`https://need-server-57f1apw1j-mirza-shahriar-tonmoys-projects.vercel.app/jobs/${params.id}`)
+        loader: ({params}) => fetch(`https://need-server.vercel.app/jobs/${params.id}`)
       }
     ]
   },
