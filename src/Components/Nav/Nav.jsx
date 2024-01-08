@@ -74,6 +74,23 @@ const Nav = ({ handleToggle }) => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
+      <button className="btn btn-square btn-ghost mr-6">
+          <label className="swap swap-rotate w-12 h-12">
+            <input type="checkbox" onChange={handleToggle} />
+            {/* light theme sun image */}
+            <img
+              src="https://i.ibb.co/tYvK2gM/moon2.png"
+              alt="light"
+              className="w-8 h-8 swap-on"
+            />
+            {/* dark theme moon image */}
+            <img
+              src="https://i.ibb.co/hdVnsb0/sun.png"
+              alt="dark"
+              className="w-8 h-8 swap-off"
+            />
+          </label>
+        </button>
         
         {user && (
           <div className="flex flex-col md:flex-row gap-7 items-center justify-center">
@@ -87,14 +104,15 @@ const Nav = ({ handleToggle }) => {
             <h1 className="text-[#59CE8F] text-xl font-semibold">
               {user.displayName}
             </h1>
-            
-            </div>
             <button
               onClick={handleSignOut}
               className="text-[#59CE8F]  bg-opacity-0 hover:text-white"
             >
               Sign out
             </button>
+            
+            </div>
+            
           </div>
         )}
       </div>

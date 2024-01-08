@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom";
 
 
 const Root = () => {
-    const [theme, setTheme] = useState('light')
+    const [theme, setTheme] = useState('dark')
     const handleToggle = e=>{
         console.log(e.target.checked);
         const buttonStat = e.target.checked;
-        if(buttonStat === true){
+        if(buttonStat === false){
             setTheme('dark');
         }
         else{
@@ -17,7 +17,7 @@ const Root = () => {
         }
       }
     return (
-           <div data-theme='dark'>
+           <div data-theme={theme}>
            <Nav handleToggle={handleToggle}></Nav>
            <Outlet></Outlet>
            <Footer ></Footer>
